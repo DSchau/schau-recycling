@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- stable
+cache:
+  yarn: true
+
+before_install: yarn global add greenkeeper-lockfile@1
+
+before_script: greenkeeper-lockfile-update
+script: yarn test
+after_script: greenkeeper-lockfile-upload
+
+before_deploy: yarn build
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: "dustinschau.com"
+  skip_cleanup: true
+  local-dir: dist
+  acl: public_read
+  on:
+    branch: master

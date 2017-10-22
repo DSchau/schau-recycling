@@ -1,0 +1,50 @@
+{
+  "name": "schau-recycling",
+  "description": "Gatsby default starter",
+  "version": "1.0.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "emotion": "~8.0.8",
+    "emotion-server": "~8.0.8",
+    "gatsby": "^1.9.63",
+    "gatsby-image": "~1.0.14",
+    "gatsby-link": "^1.6.21",
+    "gatsby-plugin-catch-links": "~1.0.9",
+    "gatsby-plugin-emotion": "~1.1.8",
+    "gatsby-plugin-google-analytics": "~1.0.10",
+    "gatsby-plugin-manifest": "~1.0.8",
+    "gatsby-plugin-react-helmet": "^1.0.5",
+    "gatsby-plugin-sharp": "~1.6.10",
+    "gatsby-plugin-typescript": "~1.4.8",
+    "gatsby-plugin-typography": "~1.7.10",
+    "gatsby-remark-autolink-headers": "~1.4.7",
+    "gatsby-remark-copy-linked-files": "~1.5.10",
+    "gatsby-remark-images": "~1.5.20",
+    "gatsby-remark-smartypants": "~1.4.8",
+    "gatsby-source-filesystem": "~1.5.5",
+    "gatsby-transformer-remark": "~1.7.17",
+    "gatsby-transformer-sharp": "~1.6.12",
+    "normalize.css": "~7.0.0",
+    "react-emotion": "~8.0.8"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "npm run format:js & npm run format:ts",
+    "format:js": "prettier --trailing-comma es5 --single-quote --write '*.js'",
+    "format:ts": "prettier --trailing-comma es5 --single-quote --write --parser typescript 'src/**/*.{ts,tsx}'",
+    "start": "npm run develop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/prop-types": "~15.5.2",
+    "@types/react": "~16.0.15",
+    "@types/react-helmet": "~5.0.3",
+    "prettier": "^1.7.4"
+  }
+}
