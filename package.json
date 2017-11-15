@@ -21,6 +21,8 @@
     "webpack-dev-server": "~2.9.4"
   },
   "dependencies": {
-    "normalize.css": "~7.0.0"
+    "autosize": "~4.0.0",
+    "normalize.css": "~7.0.0",
+    "unfetch": "~3.0.0"
   }
 }
