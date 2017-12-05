@@ -1,10 +1,13 @@
 // @flow
 import * as React from "react"
 import 'normalize.css';
+import { ThemeProvider } from 'emotion-theming';
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
 
 import { Header } from '../components';
+
+import { THEME } from '../style';
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -17,35 +20,12 @@ const containerStyle = {
 class DefaultLayout extends React.Component {
   render() {
     return (
-      <div>
-        <div
-          css={{
-            background: `rgb(207, 58, 62)`,
-            marginBottom: rhythm(1),
-            padding: `${rhythm(1)} 0px`,
-            "@media screen and (min-width: 500px)": {
-              padding: `${rhythm(2)} 0px`,
-            },
-          }}
-        >
-          <div css={containerStyle}>
-            <h1
-              css={{
-                margin: 0,
-                fontSize: scale(1.5).fontSize,
-                lineHeight: 1,
-                "@media screen and (min-width: 500px)": {
-                  fontSize: scale(1.9).fontSize,
-                  lineHeight: 1,
-                },
-              }}
-            >
-              <Header />
-            </h1>
-          </div>
+      <ThemeProvider theme={THEME}>
+        <div>
+          <Header />
+          <div css={containerStyle}>{this.props.children()}</div>
         </div>
-        <div css={containerStyle}>{this.props.children()}</div>
-      </div>
+      </ThemeProvider>
     )
   }
 }

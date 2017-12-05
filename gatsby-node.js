@@ -7,11 +7,12 @@ exports.modifyBabelrc = ({ babelrc }) => {
     return {
       plugins: [
         [require.resolve(`babel-plugin-emotion`), { sourceMap: true }],
+        require.resolve('babel-preset-flow')
       ].concat(babelrc.plugins),
     }
   }
   return {
-    plugins: [require.resolve(`babel-plugin-emotion`), require.resolve('flow')].concat(babelrc.plugins),
+    plugins: [require.resolve(`babel-plugin-emotion`), require.resolve('babel-preset-flow')].concat(babelrc.plugins),
   }
 };
 
