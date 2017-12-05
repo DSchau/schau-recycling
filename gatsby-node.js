@@ -5,14 +5,15 @@ const slash = require('slash');
 exports.modifyBabelrc = ({ babelrc }) => {
   if (process.env.NODE_ENV !== `production`) {
     return {
+      presets: [require.resolve('babel-preset-flow')].concat(babelrc.presets),
       plugins: [
-        [require.resolve(`babel-plugin-emotion`), { sourceMap: true }],
-        require.resolve('babel-preset-flow')
+        [require.resolve(`babel-plugin-emotion`), { sourceMap: true }]
       ].concat(babelrc.plugins),
     }
   }
   return {
-    plugins: [require.resolve(`babel-plugin-emotion`), require.resolve('babel-preset-flow')].concat(babelrc.plugins),
+    presets: [require.resolve('babel-preset-flow')].concat(babelrc.presets),
+    plugins: [require.resolve(`babel-plugin-emotion`)].concat(babelrc.plugins),
   }
 };
 
@@ -52,11 +53,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         // Create Page pages.
         const pageTemplate = path.resolve(`./src/templates/page.js`)
         result.data.allWordpressPage.edges.forEach(edge => {
+          const page = `/${edge.node.slug}/`;
           createPage({
-            path: `/${edge.node.slug}/`,
+            path: page,
             component: slash(pageTemplate),
             context: {
               id: edge.node.id,
+              path: page
             },
           })
         });
@@ -86,11 +89,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           const postTemplate = path.resolve(`./src/templates/post.js`);
 
           result.data.allWordpressPost.edges.forEach(edge => {
+            const post = `/posts/${edge.node.slug}`;
             createPage({
-              path: `/posts/${edge.node.slug}`,
+              path: post,
               component: slash(postTemplate),
               context: {
                 id: edge.node.id,
+                path: post
               },
             })
           });
