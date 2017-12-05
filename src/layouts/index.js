@@ -1,6 +1,10 @@
-import React from "react"
+// @flow
+import * as React from "react"
+import 'normalize.css';
 import PropTypes from "prop-types"
 import Link from "gatsby-link"
+
+import { Header } from '../components';
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -36,18 +40,7 @@ class DefaultLayout extends React.Component {
                 },
               }}
             >
-              <Link
-                css={{
-                  color: `rgb(224,203,144)`,
-                  ":hover": {
-                    color: `rgb(224,203,144)`,
-                    textDecoration: `none`,
-                  },
-                }}
-                to="/"
-              >
-                Schau Recycling
-              </Link>
+              <Header />
             </h1>
           </div>
         </div>

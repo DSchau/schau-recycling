@@ -10,27 +10,38 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "start": "gatsby serve"
+    "start": "npm run dev"
   },
   "devDependencies": {
+    "babel-preset-flow": "~6.23.0",
     "config": "~1.28.1",
+    "flow-bin": "~0.60.1",
     "slash": "~1.0.0"
   },
   "dependencies": {
     "autosize": "~4.0.0",
+    "babel-plugin-emotion": "~8.0.12",
+    "emotion": "~8.0.12",
+    "emotion-server": "~8.0.12",
     "gatsby": "~1.9.128",
     "gatsby-image": "~1.0.27",
     "gatsby-link": "~1.6.30",
+    "gatsby-plugin-emotion": "~1.1.9",
     "gatsby-plugin-react-helmet": "~2.0.2",
     "gatsby-plugin-react-next": "~1.0.5",
+    "gatsby-plugin-sharp": "~1.6.22",
+    "gatsby-plugin-typography": "~1.7.10",
     "gatsby-source-wordpress": "~2.0.40",
+    "gatsby-transformer-sharp": "~1.6.15",
     "lodash": "~4.17.4",
+    "normalize.css": "~7.0.0",
     "react": "~16.2.0",
     "react-dom": "~16.2.0",
+    "react-emotion": "~8.0.12",
     "react-helmet": "~5.2.0",
     "react-icons": "~2.2.7",
     "typography": "~0.16.6",
-    "typography-theme-wordpress-2013": "~0.15.10",
+    "typography-theme-funston": "~0.15.10",
     "unfetch": "~3.0.0"
   }
 }

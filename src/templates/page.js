@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import PostIcons from "../components/PostIcons"
 
 import { rhythm } from "../utils/typography"
 
@@ -14,7 +13,6 @@ class PageTemplate extends Component {
     return (
       <div>
         <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
-        <PostIcons node={currentPage} css={{ marginBottom: rhythm(1 / 2) }} />
         <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
       </div>
     )

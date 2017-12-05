@@ -1,15 +1,26 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import Img from "gatsby-image"
+// @flow
+import * as React from "react"
+import Image from "gatsby-image"
 
-class PostTemplate extends Component {
+interface Props {
+  data: {
+    wordpressPost: {
+      title: string;
+      content: string;
+      acf: any;
+    }
+  }
+}
+
+interface State {}
+
+class PostTemplate extends React.Component<Props, State> {
   render() {
     const post = this.props.data.wordpressPost
 
     return (
       <div>
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-        {/*<PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} />*/}
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
         {post.acf &&
           post.acf.page_builder_post &&
@@ -21,7 +32,7 @@ class PostTemplate extends Component {
                   {layout.pictures.map(({ picture }) => {
                     const img = picture.localFile.childImageSharp.sizes
                     return (
-                      <Img
+                      <Image
                         key={img.src}
                         sizes={img}
                       />
@@ -35,7 +46,7 @@ class PostTemplate extends Component {
               return (
                 <div key={`${i}-photo`}>
                   <h2>ACF Post Photo</h2>
-                  <Img
+                  <Image
                     src={img.src}
                     sizes={img}
                   />
@@ -49,11 +60,6 @@ class PostTemplate extends Component {
   }
 }
 
-PostTemplate.propTypes = {
-  data: PropTypes.object.isRequired,
-  edges: PropTypes.array,
-}
-
 export default PostTemplate
 
 export const pageQuery = graphql`
@@ -61,7 +67,7 @@ export const pageQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title
       content
-
+      id
     }
     site {
       siteMetadata {
