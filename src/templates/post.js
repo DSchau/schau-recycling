@@ -1,15 +1,15 @@
 // @flow
-import * as React from "react"
-import Image from "gatsby-image"
+import * as React from 'react';
+import Image from 'gatsby-image';
 
 interface Props {
   data: {
     wordpressPost: {
-      title: string;
-      content: string;
-      acf: any;
+      title: string,
+      content: string,
+      acf: any
     }
-  }
+  };
 }
 
 interface State {}
@@ -23,11 +23,11 @@ class PostTemplate extends React.Component<Props, State> {
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
-    )
+    );
   }
 }
 
-export default PostTemplate
+export default PostTemplate;
 
 export const pageQuery = graphql`
   query currentPostQuery($id: String!) {
@@ -44,4 +44,4 @@ export const pageQuery = graphql`
       id
     }
   }
-`
+`;

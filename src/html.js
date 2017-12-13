@@ -23,6 +23,6 @@ const Html = ({ headComponents, body, postBodyComponents }: Props) => (
       {postBodyComponents}
     </body>
   </html>
-)
+);
 
 export default Html;
