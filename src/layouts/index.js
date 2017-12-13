@@ -17,12 +17,16 @@ const containerStyle = {
   padding: rhythm(3 / 4),
 }
 
-class DefaultLayout extends React.Component {
+interface Props {}
+interface State {}
+
+class DefaultLayout extends React.Component<Props, State> {
   render() {
+    const isHome = this.props.location.pathname === '/';
     return (
       <ThemeProvider theme={THEME}>
         <div>
-          <Header />
+          <Header isHome={isHome} links={['about', 'contact', 'news']}/>
           <div css={containerStyle}>{this.props.children()}</div>
         </div>
       </ThemeProvider>

@@ -3605,6 +3605,12 @@ gatsby-module-loader@^1.0.9:
     babel-runtime "^6.26.0"
     loader-utils "^0.2.16"
 
+gatsby-plugin-catch-links@~1.0.13:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-catch-links/-/gatsby-plugin-catch-links-1.0.13.tgz#c02d68efe4f8a95475cc6549db75034a6420def8"
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-emotion@~1.1.9:
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-1.1.9.tgz#38413dfacc8027a9f30d9c897a708ea47627ba33"
@@ -8791,6 +8797,10 @@ term-size@^1.2.0:
 text-table@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
+
+three@~0.88.0:
+  version "0.88.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.88.0.tgz#4256c2fc38e4fb23a0d23eba2b6cce4df8e466d5"
 
 through2-filter@^2.0.0:
   version "2.0.0"

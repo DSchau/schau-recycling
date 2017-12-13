@@ -27,6 +27,7 @@
     "gatsby": "~1.9.128",
     "gatsby-image": "~1.0.27",
     "gatsby-link": "~1.6.30",
+    "gatsby-plugin-catch-links": "~1.0.13",
     "gatsby-plugin-emotion": "~1.1.9",
     "gatsby-plugin-react-helmet": "~2.0.2",
     "gatsby-plugin-react-next": "~1.0.5",
@@ -41,6 +42,7 @@
     "react-emotion": "~8.0.12",
     "react-helmet": "~5.2.0",
     "react-icons": "~2.2.7",
+    "three": "~0.88.0",
     "typography": "~0.16.6",
     "typography-theme-funston": "~0.15.10",
     "unfetch": "~3.0.0"

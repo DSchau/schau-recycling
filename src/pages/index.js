@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+// @flow
+import * as React from "react"
 import Link from "gatsby-link"
 import Image from 'gatsby-image';
 import ClockIcon from "react-icons/lib/fa/clock-o"
@@ -8,7 +8,10 @@ import OpenIcon from "react-icons/lib/fa/folder-open"
 
 import { rhythm } from "../utils/typography"
 
-class Home extends Component {
+interface Props {}
+interface State {}
+
+class Home extends React.Component<Props, State> {
   render() {
     const { data } = this.props;
 
