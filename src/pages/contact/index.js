@@ -2,10 +2,10 @@
 import * as React from 'react';
 import styled from 'react-emotion';
 import { Form as FinalForm, Field } from 'react-final-form';
-
-import { submit, validate } from './util';
+import fetch from 'isomorphic-fetch';
 
 import { Textarea as AutosizedTextarea } from '../../components';
+import { FORM_URL } from '../../constants';
 import { SERIF } from '../../style';
 
 const Container = styled.div({
@@ -89,6 +89,41 @@ const Button = styled.button(
 const SecondaryButton = styled(Button)({
   backgroundColor: 'grey'
 });
+
+const submit = async values => {
+  const formInput = {
+    ...values,
+    subject: `Hello from schaurecycling.com`
+  };
+
+  await fetch(FORM_URL, {
+    method: 'POST',
+    body: JSON.stringify(formInput)
+  })
+    .then(response => {
+      if (response.ok) {
+        return response.json()
+      }
+      throw new Error('Something went wrong');
+    });
+};
+
+const validate = values => {
+  let errors = {};
+
+  if (!values.name) {
+    errors.name = 'Name is required';
+  }
+
+  if (!values.email) {
+    errors.email = 'Email is required';
+  }
+
+  if (!values.message) {
+    errors.message = 'Message is required';
+  }
+  return errors;
+};
 
 interface Props {}
 
