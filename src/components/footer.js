@@ -84,7 +84,7 @@ const LinkedList = ({ items, title }) => (
 
 function FooterComponent(props: Props) {
   const Facebook = styledIcon(FacebookIcon);
-  const year = new Date().getFullYear();
+  const current = new Date().getFullYear();
   return (
     <Container>
       <Footer>
@@ -106,7 +106,7 @@ function FooterComponent(props: Props) {
           </Social>
         </FooterContents>
         <Seperator />
-        <Copyright>&copy; Schau Recycling, LLC ({year})</Copyright>
+        <Copyright>&copy; 2007&ndash;{current} Schau Recycling, LLC</Copyright>
       </Footer>
     </Container>
   );

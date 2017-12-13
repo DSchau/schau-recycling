@@ -27,7 +27,7 @@ class DefaultLayout extends React.Component<Props, State> {
     return (
       <ThemeProvider theme={THEME}>
         <div>
-          <Header isHome={isHome} links={['about', 'contact', 'news']} />
+          <Header isHome={isHome} links={['about', 'contact', 'posts']} />
           <div css={containerStyle}>{this.props.children()}</div>
           <Footer />
         </div>

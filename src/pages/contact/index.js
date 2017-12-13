@@ -5,6 +5,7 @@ import { Form as FinalForm, Field } from 'react-final-form';
 
 import { submit, validate } from './util';
 
+import { Textarea as AutosizedTextarea } from '../../components';
 import { SERIF } from '../../style';
 
 const Container = styled.div({
@@ -25,11 +26,21 @@ const Form = styled.form({
   width: '100%'
 });
 
+const Row = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  '@media only screen and (min-width: 768px)': {
+    flexDirection: 'row'
+  }
+});
+
 const Label = styled.label({
   display: 'block',
   fontSize: 20,
   fontWeight: 'bold',
   marginBottom: '1rem',
+  width: '100%',
   ...SERIF
 });
 
@@ -44,7 +55,7 @@ const Input = styled.input({
   }
 }));
 
-const Textarea = styled.textarea({
+const Textarea = styled(AutosizedTextarea)({
   display: 'block',
   width: '100%',
   border: '1px solid #EEE',
@@ -106,28 +117,30 @@ export default function Contact(props: Props) {
               handleSubmit(event);
             }}
           >
-            <Field
-              name="name"
-              render={({ input, meta }) => (
-                <Label for="name">
-                  Name
-                  <Input id="name" name="name" {...input} />
-                  {meta.error &&
-                    meta.touched && <ErrorMessage>{meta.error}</ErrorMessage>}
-                </Label>
-              )}
-            />
-            <Field
-              name="email"
-              render={({ input, meta }) => (
-                <Label for="email">
-                  Email
-                  <Input id="email" name="email" {...input} />
-                  {meta.error &&
-                    meta.touched && <ErrorMessage>{meta.error}</ErrorMessage>}
-                </Label>
-              )}
-            />
+            <Row>
+              <Field
+                name="name"
+                render={({ input, meta }) => (
+                  <Label for="name">
+                    Name
+                    <Input id="name" name="name" {...input} />
+                    {meta.error &&
+                      meta.touched && <ErrorMessage>{meta.error}</ErrorMessage>}
+                  </Label>
+                )}
+              />
+              <Field
+                name="email"
+                render={({ input, meta }) => (
+                  <Label for="email">
+                    Email
+                    <Input id="email" name="email" {...input} />
+                    {meta.error &&
+                      meta.touched && <ErrorMessage>{meta.error}</ErrorMessage>}
+                  </Label>
+                )}
+              />
+            </Row>
             <Field
               name="message"
               render={({ input, meta }) => (

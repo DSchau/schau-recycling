@@ -39,6 +39,7 @@
     "gatsby-plugin-typography": "~1.7.10",
     "gatsby-source-wordpress": "~2.0.40",
     "gatsby-transformer-sharp": "~1.6.15",
+    "isomorphic-fetch": "~2.2.1",
     "lodash": "~4.17.4",
     "normalize.css": "~7.0.0",
     "react": "~16.2.0",
