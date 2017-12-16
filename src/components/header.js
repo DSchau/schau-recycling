@@ -5,33 +5,34 @@ import styled from 'react-emotion';
 
 import logoSrc from './images/logo.svg';
 
-// import { Logo } from './logo';
-
 import { rhythm, scale } from '../utils/typography';
+import { SANS_SERIF } from '../style';
 
-const Container = styled.header(
-  {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: `rgb(207, 58, 62)`,
-    marginBottom: rhythm(1),
-    padding: `${rhythm(1 / 4)} 0px`
-  },
-  ({ home, theme }) => ({
-    backgroundColor: theme.base,
-    ...(home
-      ? {
-          minHeight: '50vh'
-        }
-      : {})
-  })
-);
+const Container = styled.div();
+
+const Header = styled.header({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+}, ({ theme }) => ({
+  backgroundColor: theme.base
+}));
+
+const Byline = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  minHeight: '35vh'
+}, ({ theme }) => ({
+  backgroundColor: theme.base
+}));
 
 const LinksContainer = styled.ul({
+  display: 'flex',
   margin: 0,
   marginLeft: 'auto',
-  padding: 0
+  padding: 0,
 });
 
 const Link = styled.li({
@@ -39,13 +40,30 @@ const Link = styled.li({
   listStyleType: 'none',
   color: 'white',
   padding: `0 ${rhythm(1 / 4)}`,
-  margin: 0
+  margin: 0,
+  ...SANS_SERIF
 });
 
 const StyledLink = styled(GatsbyLink)({
   color: 'inherit',
-  textDecoration: 'none'
-});
+  textDecoration: 'none',
+  padding: `${rhythm(1/2)} ${rhythm(1/4)}`,
+  marginLeft: 14,
+  marginRight: 14,
+  transition: 'border 175ms ease-in-out',
+  ':hover': {
+    borderBottom: '2px solid white'
+  },
+  '&.active': {
+    borderBottom: '2px solid white'
+  }
+}, ({ theme }) => ({
+  color: theme.tertiary,
+  '&.active': {
+    color: 'white',
+    fontWeight: 'bold'
+  }
+}));
 
 const TitleContainer = styled.div({
   padding: rhythm(3 / 4)
@@ -68,6 +86,29 @@ const Title = styled(GatsbyLink)({
   }
 });
 
+const Tag = styled.h1({
+  color: 'white',
+  textTransform: 'uppercase',
+  textAlign: 'center',
+  margin: 0,
+  padding: 0,
+  fontSize: 32,
+  '@media only screen and (min-width: 768px)': {
+    fontSize: 60
+  }
+});
+
+const SubTag = styled.h2(({ theme }) => ({
+  color: theme.baseLight,
+  textAlign: 'center',
+  margin: 0,
+  padding: 0,
+  fontSize: 20,
+  '@media only screen and (min-width: 768px)': {
+    fontSize: 40
+  }
+}));
+
 const Logo = styled.img({
   maxHeight: 72,
   marginBottom: 0,
@@ -83,20 +124,29 @@ interface Props {
   links: any[];
 }
 
-export function Header({ isHome, links }: Props) {
+function HeaderComponent({ isHome, links }: Props) {
   return (
-    <Container home={isHome}>
-      <TitleContainer>
-        <Title to="/"><Logo src={logoSrc} /> Schau Recycling</Title>
-        {/*<Logo />*/}
-      </TitleContainer>
-      <LinksContainer>
-        {links.map(link => (
-          <Link key={link}>
-            <StyledLink to={`/${link}`}>{link}</StyledLink>
-          </Link>
-        ))}
-      </LinksContainer>
+    <Container>
+      <Header>
+        <TitleContainer>
+          <Title to="/"><Logo src={logoSrc} /> Schau Recycling</Title>
+        </TitleContainer>
+        <LinksContainer>
+          {links.map(link => (
+            <Link key={link}>
+              <StyledLink to={`/${link}`} activeClassName="active">{link}</StyledLink>
+            </Link>
+          ))}
+        </LinksContainer>
+      </Header>
+      {isHome && (
+        <Byline>
+          <Tag>Scrap is our Business.</Tag>
+          <SubTag>Buyers of ferrous and non-ferrous metals.</SubTag>
+        </Byline>
+      )}
     </Container>
   );
 }
+
+export { HeaderComponent as Header }

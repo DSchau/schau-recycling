@@ -6,7 +6,7 @@ import { ThemeProvider } from 'emotion-theming';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
-import { Header, Footer } from '../components';
+import { Header, Footer, Locations } from '../components';
 
 import { THEME } from '../style';
 
@@ -28,6 +28,7 @@ class DefaultLayout extends React.Component<Props, State> {
       <ThemeProvider theme={THEME}>
         <div>
           <Header isHome={isHome} links={['about', 'contact', 'posts']} />
+          {isHome && <Locations />}
           <div css={containerStyle}>{this.props.children()}</div>
           <Footer />
         </div>

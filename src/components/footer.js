@@ -14,9 +14,10 @@ const Footer = styled.footer({
   flexDirection: 'column',
   alignItems: 'center',
   minHeight: '15vh',
-  width: '100%',
-  backgroundColor: 'black'
-});
+  width: '100%'
+}, ({ theme }) => ({
+  backgroundColor: theme.accent
+}));
 
 const FooterContents = styled.div({
   display: 'flex',
